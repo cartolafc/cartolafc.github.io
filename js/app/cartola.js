@@ -6,7 +6,7 @@ cartolaApp.factory('Cartola', ['$http', function($http) {
   var baseUrl = 'https://api.cartolafc.globo.com/';
   return {
     status: function () {
-      var promise = $http(baseUrl + 'mercado/status').then(function(response) {
+      var promise = $http.get(baseUrl + 'mercado/status').then(function(response) {
         return response.data;
       });
 
