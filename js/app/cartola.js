@@ -6,9 +6,15 @@ cartolaApp.factory('Cartola', ['$http', function($http) {
   var baseUrl = 'https://api.cartolafc.globo.com/';
   return {
     status: function () {
-      var promise = $http.jsonp(baseUrl + 'mercado/status?callback=JSON_CALLBACK').then(function(response) {
-        return response.data;
-      });
+      var promise = $http.jsonp(baseUrl + 'mercado/status?callback=JSON_CALLBACK').then(
+          function(response) {
+            return response.data;
+          },
+          function(response) {
+            // error processing request
+            return response;
+          }
+      );
 
       return promise;
     }
