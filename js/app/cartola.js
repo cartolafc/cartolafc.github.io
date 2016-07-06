@@ -2,10 +2,10 @@
 
 var cartolaApp = angular.module('cartolaApp', []);
 
-cartolaApp.config(function($httpProvider) {
+cartolaApp.config(['$httpProvider', function($httpProvider) {
   $httpProvider.defaults.useXDomain = true;
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
-});
+}]);
 
 cartolaApp.factory('Cartola', ['$http', function($http) {
   var baseUrl = 'https://api.cartolafc.globo.com/';
